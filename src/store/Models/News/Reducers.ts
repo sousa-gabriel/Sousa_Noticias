@@ -3,9 +3,7 @@ import {produce} from 'immer';
 import {INewsState} from './Types';
 
 const INITIAL_STATE={
-    News : [
-        {"Author": "teste 1", "description": "", "id": 0, "title": ""}, {"Author": "teste 2", "description": "", "id": 0, "title": ""}, {"Author": "teste 3", "description": "", "id": 0, "title": ""}, {"Author": "teste 3", "description": "", "id": 0, "title": ""},
-    ],
+    News : [],
 }
 
 const News : Reducer<INewsState> = ( state = INITIAL_STATE, action)=>{

@@ -1,34 +1,27 @@
 import React from 'react';
-import { Image, ImageBackground, View } from 'react-native';
+import { FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
+import CarouselNews from '../../Components/carouselNews';
+import SmallNews from '../../Components/SmallNews';
 import {
-    Container,
-    ContainerNews,
-    Title,
-    Author,
-    Background
+    Container
 } from './styles'
-import Fundo from '../../../assets/inter.png' 
 
 const Dashboard : React.FC = ()=>{
+    const ListNews = useSelector(state => state.News.News)
+        console.log("+++++++++++++++++++++++++++++++");
+        console.log(ListNews);
+        console.log("+++++++++++++++++++++++++++++++");
+
     return (
         <Container>
-            <ImageBackground source={Fundo} style={{width: '100%', height:'80%'}}>
-                <View style={{width: '100%', height:'80%', backgroundColor:'#00000033'}}>
-                    <Title style={{color: '#fff', margin: '5%'}}>Marcos Guilherme Atende Pedido da esposa</Title>
-                    <Author style={{color: '#fff'}}>Abel braga</Author>
-                </View>
-            </ImageBackground>
-            <ContainerNews>
-                <View>
-                    <Background source={Fundo} />
-                </View>
-                <View style={{position:'absolute', right:0, width:'55%'}}>
-                    <Title >Marcos Guilherme Atende Pedido da esposa</Title>
-                    <Author>Abel braga</Author>
-                </View>
-            </ContainerNews>
-     
-            
+            <CarouselNews/>
+            <FlatList
+                data={ListNews}
+                renderItem={({item})=>(
+                    <SmallNews />
+                )}
+            />
         </Container>
     );
 }

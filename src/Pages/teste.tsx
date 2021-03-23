@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,23 +9,23 @@ const Teste: React.FC = () =>{
     const [author, setAuthor] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const navigation = useNavigation();
 
-    const dispatch = useDispatch();
+
+    const dispatch = useDispatch(); 
     
     const CreatedNewNews={
-        Author:author,
-        title:title,
-        description:description,
-        id: 0
+        Author:author || 'teste',
+        title:title || 'Teste',
+        description:description || 'Teste',
+        id: 1,
+        Image: 'siajdijsiajijdijsiajijd',
     }
-     function enviarDados(){
+     function enviarDados(){    
          console.log(CreatedNewNews);
         dispatch( addNews(CreatedNewNews))
     }
-    function BuscarDados(){
-        const NewsList = useSelector(state => state);    
-        console.log(NewsList)
-    }
+
 
     return(
         <>
@@ -61,8 +62,8 @@ const Teste: React.FC = () =>{
                     </TouchableOpacity>
                     <TouchableOpacity 
                         style={{width: 200, height: 60, backgroundColor:'blue' }}
-                    onPress={()=>{BuscarDados()}}>
-                        <Text> Buscar dados</Text>
+                        onPress={()=>{navigation.navigate('DashBord')}}>
+                        <Text> Enviar dados</Text>
                     </TouchableOpacity>
                 </View>
             </View>

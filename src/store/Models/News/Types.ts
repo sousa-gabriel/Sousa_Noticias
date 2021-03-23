@@ -8,6 +8,7 @@ export interface INews{
     title: string;
     description: string;
     Author: string; 
+    Image:string;
 }
 
 //interface de varias noticias

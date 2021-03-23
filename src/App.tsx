@@ -8,8 +8,8 @@ import store from './store';
 
 const App: React.FC = () =>(
     <>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        <View style={{flex:1, padding: 10}}>
+        <StatusBar barStyle="dark-content" backgroundColor="#6272a4" />
+        <View style={{flex:1}}>
             <NavigationContainer>
                 <Provider store={store}>
                     <Routes/>

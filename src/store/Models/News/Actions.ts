@@ -1,5 +1,4 @@
-//importando os tipos dos meus dados
-import {INews, INewsState} from './Types';
+import {INews} from './Types';
 
 export function addNews(news : INews){
     return{
@@ -10,29 +9,21 @@ export function addNews(news : INews){
     }
 }
 
-export function removeNews({News}: INewsState){
+export function removeNew(id:string){
     return{
-        type: 'REMOVE_NEWS',
+        type: 'REMOVE_NEW',
         payload:{
-            News
+            id
         }
     }
 }
 
-export function editNews({News}:INewsState){
+export function editNews(News:INews, id:string){
     return{
         type: 'EDIT_NEWS',
         payload:{
-            News
-        }
-    }
-}
-
-export function searchNews({News}:INewsState){
-    return{
-        type: 'SEARCH_NEWS',
-        payload:{
-            News
+            News,
+            id
         }
     }
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import {
     ContainerNews,
     Title,
@@ -8,15 +9,33 @@ import {
     ContainerData,
 } from './styles';
 
-const SmallNews: React.FC = () => {
+interface DataNewsItem{
+    author:string,
+    title:string,
+    image:string,
+    ID:string,
+    onselected: (ID:string)=>string,
+}
+
+const SmallNews: React.FC<DataNewsItem> = ({ID, author,title,image, onselected}) => {
+    const [isSelected, setIsSelected] = useState(false);
+
+
+    const handleInputFocus = (ID:string) => {
+        setIsSelected(!isSelected);
+        onselected(ID);
+    };
     return(
-        <ContainerNews>
+        <ContainerNews 
+            onPress={()=>{handleInputFocus(ID)}}
+            Selected = {isSelected}
+        >
             <ContainerImage>
-                <Background source={{uri:"https://cdn1.staticpanvel.com.br/produtos/15/706040-15.jpg?ims=480x"}} />
+                <Background source={{uri:image}} />
             </ContainerImage>
             <ContainerData >
-                <Title>Marcos Guilherme Atende Pedido da esposa</Title>
-                <Author>Abel braga</Author>
+                <Title>{title}...</Title>
+                <Author>{author}</Author>
             </ContainerData>
         </ContainerNews>
     );

@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import { ImageBackground, Text, TouchableOpacity} from 'react-native';
+import { ImageBackground, Text, TouchableOpacity, View} from 'react-native';
 
 export const ImageBack = styled(ImageBackground)`
     width: 100%; 
     height: 200px;
 `;
-
+export const Container = styled(View)`
+    width: 100%; 
+    height: 200px;
+    background-color:#fff;
+`;
 export const Title = styled(Text)`
     font-size: 20px;
     height: 200px;

@@ -4,6 +4,7 @@ import {INewsState} from './Types';
 
 const INITIAL_STATE={
     News : [],
+    Selecionado: '',
 }
 
 const News : Reducer<INewsState> = ( state = INITIAL_STATE, action)=>{
@@ -14,20 +15,25 @@ const News : Reducer<INewsState> = ( state = INITIAL_STATE, action)=>{
                     draft.News.push(news)
                 break;
             }
-            case 'REMOVE_NEWS':{
-                const {news} = action.payload;
-                    console.log(news.id);
+            case 'REMOVE_NEW':{
+                const {id} = action.payload;
+                const DeleteItem = draft.News.findIndex(item => item.id === id );
+                if(DeleteItem >= 0){
+                    draft.News.splice(DeleteItem,1);
+                }else{
+                    return draft;
+                }
                 break;
             }
             case 'EDIT_NEWS':{
-                const {news} = action.payload;
-                    console.log(news.id);
+                const news = action.payload;
+                const EditItem = draft.News.findIndex(item => item.id === news.id);
+                if(EditItem >= 0){
+                    draft.News[EditItem] = news.News;
+                }else{
+                    return draft;
+                }                
                 break;
-            }
-            case 'SEARCH_NEWS':{
-                const {Listnews} = action.payload;
-                    draft.News = Listnews;
-                    console.log(Listnews);
             }
         }
     })

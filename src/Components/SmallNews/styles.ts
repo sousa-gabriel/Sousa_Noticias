@@ -1,10 +1,17 @@
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 import { ImageBackground, Text, View, TouchableOpacity} from 'react-native';
+interface ContainerProps{
+    Selected: boolean;   
+}
 
-export const ContainerNews = styled(TouchableOpacity)`
+export const ContainerNews = styled(TouchableOpacity)<ContainerProps>`
     width: 100%;
     height: 100px;
     background: #fff;
+
+    border-width: 2px;
+    border-color: #fff;
+    ${(props) =>props.Selected && css `border-color:#ff9000`};
     border-radius: 5px;
     margin-top:20px;
 `;

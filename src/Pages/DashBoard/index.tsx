@@ -43,7 +43,7 @@ const Dashboard : React.FC = ()=>{
     const handleDeleteNew = ()=>{
         dispatch( removeNew(idSelected));
     }
-    const handleSelected = (ID:string) =>{
+    const handleSelected = (ID:string) =>{  
         setSelected(!selected);
         setIdSelected(ID);
     }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { addNews } from '../../store/Models/News/Actions';
@@ -30,6 +31,7 @@ const AddNewNews: React.FC<InterfaceProps> = ({onClose}) =>{
     const dispatch = useDispatch(); 
     
     const DateValidate = () => { 
+
         (author == '' ? setErrorauthor(false) : setErrorauthor(true) ),
         (title == '' ? setErrorTitle(false) : setErrorTitle(true)),
         (description == ''? setErrorDescription(false) : setErrorDescription(true))
@@ -42,7 +44,9 @@ const AddNewNews: React.FC<InterfaceProps> = ({onClose}) =>{
                 id: uuid()
             }
             enviarDados(CreatedNewNews)
-        }
+        }else{
+            Alert.alert('Erro ao Inserir Usuario','Verrique os campos obrigatorios')
+        }   
     };
 
      const enviarDados=(CreatedNewNews)=>{    
@@ -102,8 +106,7 @@ const AddNewNews: React.FC<InterfaceProps> = ({onClose}) =>{
                         style={{height:200,paddingTop:10 }}
                     />
                     {!errordescription && <TextError>Campo obrigatorio</TextError>}
-                <SalvarDados 
-                    onPress={DateValidate}>
+                <SalvarDados onPress={DateValidate}>
                     <SalvarDadosTitle> Enviar dados</SalvarDadosTitle>
                 </SalvarDados>
             </ContainerData>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { View, Text, TextInput }from 'react-native'
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { View, Text,ScrollView, TextInput, TouchableOpacity }from 'react-native'
 
 export const ContainerDetails = styled(ScrollView)`
     width: 100%;
@@ -47,7 +46,7 @@ export const DataItem = styled(TextInput)`
     font-family: 'RobotoSlab-Regular';
 `;
 
-export const SalvarDados = styled(RectButton)`
+export const SalvarDados = styled(TouchableOpacity)`
     width: 90%;
     height: 50px;
     margin-top: 10px;

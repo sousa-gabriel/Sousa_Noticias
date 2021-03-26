@@ -42,7 +42,7 @@ export const CampoDeBusca = styled(TextInput)`
     height: 50px;    
     margin-bottom: 40px;
     padding-left: 15px;
-
+    color:#fff;
     border-width: 1px;
     border-color: #FFF;
     border-radius: 5px;

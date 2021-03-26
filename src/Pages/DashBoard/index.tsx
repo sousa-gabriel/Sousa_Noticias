@@ -17,6 +17,7 @@ import {
 } from './styles'
 import Details from '../Details';
 import { INewsState } from '../../store/Models/News/Types';
+import Started from '../../Components/Started';
 
 const Dashboard : React.FC = ()=>{
     const [iconSelected,setIconSelected] = useState('Add')
@@ -90,7 +91,7 @@ const Dashboard : React.FC = ()=>{
                     value={text}
                 />
                 {
-                    (ItemNews.length-1>=0) && <CarouselNews  />   
+                    (ItemNews.length-1>=0) ? <CarouselNews  /> :<Started />  
                 }
                 
                 <ListNews

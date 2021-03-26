@@ -45,7 +45,7 @@ const AddNewNews: React.FC<InterfaceProps> = ({onClose}) =>{
             }
             enviarDados(CreatedNewNews)
         }else{
-            Alert.alert('Erro ao Inserir Usuario','Verrique os campos obrigatorios')
+            Alert.alert('Erro ao Inserir Usuario','Verique os campos obrigatorios')
         }   
     };
 
